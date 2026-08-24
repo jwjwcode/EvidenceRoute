@@ -1,0 +1,7 @@
+*.pt
+.env
+__pycache__/
+prompts/
+env/
+.ruff_cache/
+logs/
