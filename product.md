@@ -1,16 +1,21 @@
-EvidenceRoute is a product for evidence based video and image auditing. It is a  task orchestration and AI agent system. Given visual data, goal, cost and delay requirement, it output structured reports, which can be reviewed by human.
+#product statement
+EvidenceRoute is a evidece aware multi-modal task orchestration system for auditing long video according to a SOP under cost and latency requirements. Initially the system focus on long video and text SOP. Image modality will be added later. It outputs structured reports, which can be reviewed by human.
 
-The potential user include: 
-1.safety, complience and quality check users
-2.human report reviewers
+#problem
+Long video auditing is slow and it lacks evidence to support the auditing results.
+
+#targeted users
+1.safety, complience and quality inspectors
+2.human reviewers responsible for approving reports
 3. AI/ML engineer responsible to select the models.
 
 User stories:
-As a safety officer, I want it to understand visual and language data so that the safety review process can be faster.
+As a safety, complience and quality inspector, I want to upload long video and SOP a so that an automatic auditing report can be generated.
 As a report reviewer, I want to match the report and corresponding video segments so that the report is supported by evidence.
 As a AI/ML engineer, I want to select AI models based on cost and accuracy requiments so that the system achieves best tradeoff between cost and performance.
 
-Nongoals for V0
+#week1
+Nongoals
 do not train models
 do not make final safety conclusion automatically
 do not build complete web 
