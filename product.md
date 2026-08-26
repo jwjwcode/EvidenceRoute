@@ -1,19 +1,28 @@
-EvidenceRoute is a product for evidence based video and image auditing. It is a  task orchestration and AI agent system. Given visual data, goal, cost and delay requirement, it output structured reports, which can be reviewed by human.
+# Product Statement
+EvidenceRoute is an evidence-aware multimodal task orchestration system for auditing long videos against a standard operating procedure (SOP) under cost and latency budgets.
 
-The potential user include: 
-1.safety, complience and quality check users
-2.human report reviewers
-3. AI/ML engineer responsible to select the models.
+# Problem
+1. Reviewing long and unstable field videos against an SOP is slow and difficult to audit consistently.
 
-User stories:
-As a safety officer, I want it to understand visual and language data so that the safety review process can be faster.
-As a report reviewer, I want to match the report and corresponding video segments so that the report is supported by evidence.
-As a AI/ML engineer, I want to select AI models based on cost and accuracy requiments so that the system achieves best tradeoff between cost and performance.
+2. AI-generated conclusions may appear reasonable even when they are not supported by sufficient visual or audio evidence.
 
-Nongoals for V0
-do not train models
-do not make final safety conclusion automatically
-do not build complete web 
-do not deploy cloud
-do not become general visual agent
-do not read railway videos.
+# Targeted Users
+1. Safety, compliance, and quality inspectors
+2. Human reviewers responsible for approving reports
+3. AI/ML engineers responsible for selecting the models
+
+# User stories:
+1. As a compliance or safety inspector, I want to submit a long video, an SOP, and a budget so that I receive a structured report with traceable evidence.
+
+2. As a human reviewer, I want to inspect the evidence behind each finding and override unsupported conclusions so that the final report remains accountable.
+
+3. As an AI/ML engineer, I want to compare tool-routing policies on quality, cost, latency, abstention, and false-success rate so that I can select a reliable operating policy.
+
+# Week 1
+## Non-goals
+- Do not train models
+- Do not make final safety conclusions automatically
+- Do not build a complete web application
+- Do not deploy to the cloud
+- Do not become a general visual agent
+- Do not read railway videos in Week 1
