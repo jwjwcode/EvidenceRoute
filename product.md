@@ -1,24 +1,28 @@
-#product statement
-EvidenceRoute is a evidece aware multi-modal task orchestration system for auditing long video according to a SOP under cost and latency requirements. Initially the system focus on long video and text SOP. Image modality will be added later. It outputs structured reports, which can be reviewed by human.
+# Product Statement
+EvidenceRoute is an evidence-aware multimodal task orchestration system for auditing long videos against a standard operating procedure (SOP) under cost and latency budgets.
 
-#problem
-Long video auditing is slow and it lacks evidence to support the auditing results.
+# Problem
+1. Reviewing long and unstable field videos against an SOP is slow and difficult to audit consistently.
 
-#targeted users
-1.safety, complience and quality inspectors
-2.human reviewers responsible for approving reports
-3. AI/ML engineer responsible to select the models.
+2. AI-generated conclusions may appear reasonable even when they are not supported by sufficient visual or audio evidence.
 
-User stories:
-As a safety, complience and quality inspector, I want to upload long video and SOP a so that an automatic auditing report can be generated.
-As a report reviewer, I want to match the report and corresponding video segments so that the report is supported by evidence.
-As a AI/ML engineer, I want to select AI models based on cost and accuracy requiments so that the system achieves best tradeoff between cost and performance.
+# Targeted Users
+1. Safety, compliance, and quality inspectors
+2. Human reviewers responsible for approving reports
+3. AI/ML engineers responsible for selecting the models
 
-#week1
-Nongoals
-do not train models
-do not make final safety conclusion automatically
-do not build complete web 
-do not deploy cloud
-do not become general visual agent
-do not read railway videos.
+# User stories:
+1. As a compliance or safety inspector, I want to submit a long video, an SOP, and a budget so that I receive a structured report with traceable evidence.
+
+2. As a human reviewer, I want to inspect the evidence behind each finding and override unsupported conclusions so that the final report remains accountable.
+
+3. As an AI/ML engineer, I want to compare tool-routing policies on quality, cost, latency, abstention, and false-success rate so that I can select a reliable operating policy.
+
+# Week 1
+## Non-goals
+- Do not train models
+- Do not make final safety conclusions automatically
+- Do not build a complete web application
+- Do not deploy to the cloud
+- Do not become a general visual agent
+- Do not read railway videos in Week 1
