@@ -5,3 +5,6 @@ prompts/
 env/
 .ruff_cache/
 logs/
+.venv/
+.vscode/
+*.egg-info
