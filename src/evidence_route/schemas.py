@@ -5,8 +5,8 @@ from pydantic import BaseModel, Field, model_validator
 class InspectionJob(BaseModel):
     schema_version: Literal["0.1"]
     job_id: str = Field(min_length=1)
-    media_url: str = Field(min_length=1)
-    sop_steps: list[str] = Field(min_items=1)
+    media_uri: str = Field(min_length=1)
+    sop_steps: list[str] = Field(min_length=1)
     max_cost_usd: float = Field(ge=0)
     max_latency_seconds: float = Field(gt=0)
 
@@ -25,5 +25,6 @@ class Evidence(BaseModel):
         if self.start_seconds >= self.end_seconds:
             raise ValueError("start_seconds must be less than end_seconds")
         return self
+    
 
     
