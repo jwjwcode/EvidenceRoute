@@ -11,7 +11,7 @@ EvidenceRoute is an evidence-aware multimodal task orchestration system for audi
 2. Human reviewers responsible for approving reports
 3. AI/ML engineers responsible for evaluating tool-routing policies
 
-# User Stories:
+# User Stories
 1. As a compliance or safety inspector, I want to submit a long video, an SOP, and a budget so that I receive a structured report with traceable evidence.
 
 2. As a human reviewer, I want to inspect the evidence behind each finding and override unsupported conclusions so that the final report remains accountable.

@@ -24,7 +24,5 @@ class Evidence(BaseModel):
     def validate_time_range(self) -> "Evidence":
         if self.start_seconds >= self.end_seconds:
             raise ValueError("start_seconds must be less than end_seconds")
-        return self
-    
-
+        return self  
     
