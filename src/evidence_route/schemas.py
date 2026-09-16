@@ -36,7 +36,7 @@ class Finding(BaseModel):
     @model_validator(mode="after")
     def validate_evidence_ids(self) -> "Finding":
         if (self.status == "fail" or self.status == "pass") and not self.evidence_ids:
-            raise ValueError("evidence_ids must be provided when status is 'fail'")
+            raise ValueError("evidence_ids must be provided when status is 'fail' or 'pass'")
         return self
     @model_validator(mode="after")
     def validate_human_review(self) -> "Finding":
@@ -53,7 +53,7 @@ class Report(BaseModel):
     tool_version: str = Field(min_length=1)
     evidence: list[Evidence]
     cost_usd: float = Field(ge=0)
-    latency_ms: float = Field(gt=0)
+    latency_ms: float = Field(ge=0)
 
     @model_validator(mode="after")
     def validate_evidence_ids(self) -> "Report":
