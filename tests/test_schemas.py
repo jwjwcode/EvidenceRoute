@@ -43,10 +43,13 @@ def test_evidence_time_range(evidence, start, end):
         with pytest.raises(ValidationError):
             Evidence(**data)
 
-@pytest.mark.parametrize("field, value", [("max_cost_usd", -1), ("max_latency_seconds", -1), ("max_latency_seconds", 0)])
-def test_inspection_job_cost_latency(job, field):
+@pytest.mark.parametrize("field, value", 
+                         [("max_cost_usd", -1), 
+                          ("max_latency_seconds", -1), 
+                          ("max_latency_seconds", 0)])
+def test_inspection_job_cost_latency(job, field, value):
     data = job.model_dump()
-    data[field] = -1
+    data[field] = value
     with pytest.raises(ValidationError):
         InspectionJob(**data)
 
