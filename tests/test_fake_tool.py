@@ -6,6 +6,7 @@ def test_fake_tool_returns_consistent_hashes(job):
     report1 = run_fake_inspection(job)
     report2 = run_fake_inspection(job)
     assert report1.input_hash == report2.input_hash
+    assert report1.model_dump(mode="json") == report2.model_dump(mode="json")
     job_data = job.model_dump(mode="json")
     job_data["media_uri"] = "different.mp4"
     job2 = InspectionJob(**job_data)
@@ -21,6 +22,7 @@ def test_fake_tool_report_structure(job):
     assert report.cost_usd == 0.0
     assert report.latency_ms == 1.0
     assert len(report.findings) == len(job.sop_steps)
+    assert report.evidence == []
     for index, finding in enumerate(report.findings, start=1):
         expected_step_id = f"step-{index:03d}"
         assert finding.step_id == expected_step_id
