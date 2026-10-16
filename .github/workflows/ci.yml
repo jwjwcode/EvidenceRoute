@@ -26,4 +26,4 @@ jobs:
             - name: Run tests
               run: python -m pytest -q
             - name: Run demo
-              run: python -mevidence_route.demo --job-file src/evidence_route/demo_job.json
+              run: python -mevidence_route.demo --job-file examples/sample_job.json
