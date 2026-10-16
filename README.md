@@ -14,3 +14,23 @@ See [product.md](product.md) for the product scope, target users, and non-goals.
 - The input hash is SHA-256 of the normalized job JSON, not media bytes.
 - Cost is zero; latency is a fixed simulated value of 1 ms.
 - Identical inputs produce identical reports.
+
+# current status
+current version does not read real media yet, it reads a fake job and output reports that all steps are uncertain and require human check.
+
+# requirements
+
+python3.11 or later
+
+# install
+in the root directory run
+python -m pip install -e ".[dev]"
+
+# run 
+
+python -m evidence_route.demo --job-file examples/sample_job.json
+
+
+# test
+
+python -m pytest -q
