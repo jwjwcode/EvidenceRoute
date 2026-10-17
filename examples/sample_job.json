@@ -1,0 +1,9 @@
+{
+    
+    "schema_version": "0.1",
+    "job_id": "job-001",
+    "media_uri": "example.mp4",
+    "sop_steps": ["locate tiexie", "check tiexie is closely attached to wheel"],
+    "max_cost_usd": 100,
+    "max_latency_seconds": 0.1
+}
