@@ -1,0 +1,11 @@
+{
+    "schema_version": "0.1",
+    "job_id": "job-002",
+    "media_type": "image",
+    "media_uri": "example_img.jpg",
+    "max_cost_usd": 100,
+    "max_latency_seconds": 0.1,
+    "task_spec": {"type":"object-counting", "target_objects":["cattle", "goat"]}
+
+
+}

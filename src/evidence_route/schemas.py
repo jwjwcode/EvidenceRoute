@@ -1,5 +1,7 @@
-from typing import Literal
-from pydantic import BaseModel, Field, model_validator
+from typing import Literal, Annotated
+from pydantic import BaseModel, Field, model_validator, ConfigDict
+
+Count = Annotated[int, Field(ge=0)]
 
 
 class InspectionJob(BaseModel):
@@ -63,3 +65,42 @@ class Report(BaseModel):
                 if evidence_id not in evidence_ids:
                     raise ValueError(f"Evidence ID '{evidence_id}' in finding '{finding.step_id}' does not exist in the report's evidence list")
         return self
+
+
+class SopCheckSpec(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    type: Literal["sop-check"]
+    sop_steps: list[str] = Field(min_length=1)
+    @model_validator(mode="after")
+    def validate_sop_steps_non_empty(self) -> "SopCheckSpec":
+        for step in self.sop_steps:
+            if not step.strip():
+                raise ValueError("sop steps cannot be empty")
+        return self
+
+class ObjectCountingSpec(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    type: Literal["object-counting"]
+    target_objects: list[str] = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def validate_target_objects_non_empty(self) -> "ObjectCountingSpec":
+        for target_object in self.target_objects:
+            if not target_object.strip():
+                raise ValueError("object cannot be empty")
+        return self
+
+class TaskRequest(BaseModel):
+    schema_version: Literal["0.1"]
+    job_id: str = Field(min_length=1)   
+    media_type: Literal["image", "video"]
+    media_uri: str=Field(min_length=1)
+    max_cost_usd: float = Field(ge=0)
+    max_latency_seconds: float = Field(gt=0)
+    task_spec: ObjectCountingSpec | SopCheckSpec
+
+class ObjectCountingResult(BaseModel):
+    counts:dict[str,Count] | None
+
+
+
